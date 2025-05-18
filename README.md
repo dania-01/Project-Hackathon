@@ -100,6 +100,10 @@ meme-app/
 
 - **Dania Khan** – [daniakhan0412@gmail.com](mailto:daniakhan0412@gmail.com)
 
+- **Yogita Joshi** - [joshiyogita167@gmail.com](mailto:joshiyogita167@gmail.com)
+
+- **Tilak Mishra** - [tilakmishra.76@gmail.com](mailto:tilakmishra.76@gmail.com)
+
 ---
 
 ## 📢 Notes
