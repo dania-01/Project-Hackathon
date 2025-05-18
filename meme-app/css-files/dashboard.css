@@ -1,0 +1,116 @@
+body {
+  background: linear-gradient(135deg, #221e47, #302b63, #24243e);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  overflow-x: hidden;
+   margin: 0;
+}
+
+nav {
+  background-color: #111;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 15px #ff00ff;
+  margin-bottom: 5rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav a {
+  color: #ff66cc;
+  font-weight: bold;
+  margin-left: 20px;
+  text-shadow: 0 0 5px #ff00ff;
+ margin-bottom: 1.5rem;
+ margin-top:1.5rem;
+
+}
+
+h1 {
+    font-weight:bold;
+    margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0ff;
+  margin: 30px 0;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.card {
+  background-color: #111;
+  border: 2px solid #ff00ff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #ff00ff;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 400px;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #ff00ff;
+}
+
+button {
+  background-color: #ff00ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background-color: #ff33ff;
+  box-shadow: 0 0 10px #ff00ff;
+}
+.card .avatar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card h4 {
+  font-family: 'Orbitron', sans-serif;
+  color: #dadfdf;
+  text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff;
+  font-weight: bold;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #111;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+}
+#memeContainer {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #430357f8;
+  border-radius: 16px;
+  box-shadow: 0 8px 10px rgb(252, 5, 211);
+}
+
+.meme-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(221, 7, 168, 0.2);
+  transition: transform 0.3s ease;
+  
+}
+
+.meme-img:hover {
+  transform: scale(1.03);
+}

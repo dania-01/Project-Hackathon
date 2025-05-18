@@ -1,0 +1,22 @@
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  color: #6c757d;
+}
+.glow-box {
+  background-color: #000;
+  border-radius: 20px;
+  box-shadow: 0 0 20px fuchsia;
+  color: white;
+  min-height: 260px;
+  transition: transform 0.3s;
+}
+
+.glow-box:hover {
+  transform: scale(1.02);
+}

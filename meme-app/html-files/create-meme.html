@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create Meme - MemeHub</title>
+  <link rel="stylesheet" href="../css-files/create-meme.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.7.3/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.7.3/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.7.3/firebase-storage-compat.js"></script>
+</head>
+<body>
+<nav>
+  <div class="navbar-container">
+    <div class="logo">🔥 MemeHub</div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+      <a href="setting.html" class="nav-link">Settings</a>
+    </div>
+  </div>
+</nav>
+
+  <h4>Create Your Meme</h4>
+
+  <div id="container">
+    <div id="left">
+      <canvas id="canvas" width="400" height="300"></canvas>
+
+      <div class="row">
+        <input type="file" id="uploadInput" accept="image/*" hidden />
+        <button onclick="document.getElementById('uploadInput').click()">📤 Upload Image</button>
+        <button onclick="fetchMeme()">🎲 Random Meme</button>
+      </div>
+
+      <div class="row">
+        <button onclick="generateRandomCaption()">✨ Generate Caption</button>
+        <button onclick="downloadMeme()">💾 Download</button>
+        <button onclick="surpriseMe()">🎉 Surprise</button>
+      </div>
+<br>
+<br>
+      <p><strong>Or Choose a Template:</strong></p>
+      <div id="templates">
+        <img src="https://i.imgflip.com/1bij.jpg" class="template-img" />
+        <img src="https://i.imgflip.com/1ur9b0.jpg" class="template-img" />
+        <img src="https://i.imgflip.com/26am.jpg" class="template-img" />
+        <img src="https://i.imgflip.com/1otk96.jpg" class="template-img" />
+        <img src="https://i.imgflip.com/1g8my4.jpg" class="template-img" />
+      </div>
+    </div>
+
+    <div id="right">
+      <form id="memeForm">
+        <input type="text" id="title" placeholder="Meme Title *" required />
+        <input type="text" id="topText" placeholder="Top Text" />
+        <input type="text" id="bottomText" placeholder="Bottom Text" />
+
+        <div class="row">
+          <label>Font Size</label>
+          <input type="range" id="fontSize" min="12" max="48" value="24" />
+          <span id="fontSizeVal">24px</span>
+        </div>
+
+        <div class="row">
+          <label>Color</label>
+          <input type="color" id="textColor" value="#000000" />
+          <label>Outline</label>
+          <input type="checkbox" id="outlineSwitch" />
+        </div>
+
+        <input type="text" id="tags" placeholder="Tags (comma separated)" />
+
+        <div class="row">
+          <button type="button" onclick="resetForm()" style="background:#6c757d;">Cancel</button>
+          <button type="submit">📥 Create Meme</button>
+        </div>
+      </form>
+    </div>
+    
+    <footer class="text-center text-light neon-text py-4">
+    🚀 Powered by MemeHub | © 2025 | Keep Memes Funky!
+  </footer>
+<script type="module" src="../firebase/firebase-config.js"></script>  </div>
+
+  <script type="module" src="../js-files/create-meme.js"></script>
+</body>
+</html>

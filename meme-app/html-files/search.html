@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemeHub - Search Results</title>
+    <link rel="stylesheet" href="../css-files/home.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1f1f1f;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #results-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .meme {
+            background: #2b2b2b;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .meme img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .meme p,
+        .tags {
+            text-align: left;
+        }
+
+        .tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .tags a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+    </style>
+
+<body>
+    <header>
+        <h2>MemeHub</h2>
+        <a href="./home2.html">Home</a>
+    </header>
+
+    <main>
+        <section>
+            <h1>Search Results</h1>
+            <div id="results-container"></div>
+        </section>
+    </main>
+</body>
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+    const firebaseConfig = {/* Your Firebase Config Here */ };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const queryParams = new URLSearchParams(window.location.search);
+        const queryText = queryParams.get('query');
+        const resultsContainer = document.getElementById('results-container');
+
+        if (queryText.startsWith('#')) {
+            resultsContainer.innerHTML = <p>Loading memes for ${queryText}...</p>;
+            const memesRef = collection(db, "memes");
+            const q = query(memesRef, where("tags", "array-contains", queryText.slice(1)));
+            const querySnapshot = await getDocs(q);
+            resultsContainer.innerHTML = "";
+            querySnapshot.forEach(doc => {
+                const data = doc.data();
+                resultsContainer.innerHTML += <div class='meme'><img src="${data.image}" alt="Meme"><p>${data.title}</p></div>;
+            });
+        } else {
+            resultsContainer.innerHTML = <p>Loading users with name: ${queryText}...</p>;
+            const usersRef = collection(db, "users");
+            const q = query(usersRef, where("username", "==", queryText));
+            const querySnapshot = await getDocs(q);
+            resultsContainer.innerHTML = "";
+            querySnapshot.forEach(doc => {
+                const data = doc.data();
+                resultsContainer.innerHTML += <div><p>Username: ${data.username}</p></div>;
+            });
+        }
+    });
+</script>
+</head>
+
+</html>
