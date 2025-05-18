@@ -79,4 +79,4 @@ searchBox.addEventListener("input", () => {
 });
 refreshBtn.addEventListener("click", () => fetchLeaderboard(true));
 
-fetchLeaderboard();
+fetchLeaderboard()
