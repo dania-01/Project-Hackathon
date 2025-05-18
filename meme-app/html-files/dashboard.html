@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +9,7 @@
   <link href="../css-files/dashboard.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
   <div class="neon-bg"></div>
 
@@ -15,10 +17,9 @@
     <a class="navbar-brand fw-bold text-warning" href="#">🔥 MemeHub</a>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="create-meme.html">Create Meme</a></li>
-        <li class="nav-item"><a class="nav-link" href="trendingPage.html">Top Memes</a></li>
-        <li class="nav-item"><a class="nav-link" href="Leaderboard.html">Leaderboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="create-meme.html">Create Meme</a></li>
+        <li class="nav-item"><a class="nav-link" href="leaderboard.html">Leaderboard</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logout()">Log Out</a></li>
       </ul>
@@ -30,16 +31,17 @@
 
 
     <div id="memeContainer" class="text-center mt-4">
-  <img id="memeImage" class="img-fluid rounded shadow" />
-</div>
-
+      <img id="memeImage" class="img-fluid rounded shadow" />
+    </div>
     <div class="row justify-content-center g-4">
       <div class="col-md-4">
         <div class="card neon-box p-3">
-            <h4>User Details</h4>
-<div class="avatar-wrapper">
-  <img id="avatar" src="https://api.dicebear.com/7.x/bottts/svg" class="rounded-circle mb-3 d-block mx-auto" width="100" />
-</div>          <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
+          <h4>User Details</h4>
+          <div class="avatar-wrapper">
+            <img id="avatar" src="https://api.dicebear.com/7.x/bottts/svg" class="rounded-circle mb-3 d-block mx-auto"
+              width="100" />
+          </div>
+          <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
           <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
         </div>
       </div>
@@ -58,7 +60,7 @@
       </div>
     </div>
 
-    <button id="showStatsBtn" class="btn btn-outline-light mt-4" >Show Advanced Stats</button>
+    <button id="showStatsBtn" class="btn btn-outline-light mt-4">Show Advanced Stats</button>
   </section>
 
   <footer class="text-center text-light neon-text py-4">
@@ -67,4 +69,5 @@
   <script type="module" src="../js-files/dashboard.js"></script>
   <script type="module" src="../firebase/firebase-config.js"></script>
 </body>
+
 </html>

@@ -2,203 +2,124 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MemeHub - Search Results</title>
-  <!-- Bootstrap CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../css-files/home.css" />
+  <link rel="stylesheet" href="../css-files/home.css">
   <style>
     body {
-      background-color: #121212;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       color: #fff;
       font-family: Arial, sans-serif;
-      min-height: 100vh;
-      margin: 0;
     }
-h1{
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom:20px;
-      padding: 40px 20px;
-      background-color: #1f1f1f;
-      border-bottom: 2px solid #3b82f6;
-      width: 100%;
+      padding: 15px 30px;
+      background: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 20px #3b82f6;
     }
 
-    header h2 {
-      color: #3b82f6;
-      font-size: 30px;
-      font-weight: bold;
-    }
-
-    header a {
-      color: #76a3eb;
-      font-size: 18px;
+    header .navbar-brand {
       text-decoration: none;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 28px;
+      color: #f0f;
+      text-shadow: 0 0 10px #f0f, 0 0 20px #f0f;
     }
 
-    main {
-      width: 100%;
+    header nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    header nav a {
+      font-size: 18px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0c425;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: #f0f;
+      text-shadow: 0 0 10px #f0f, 0 0 20px #f0f;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: center;
     }
 
     #results-container {
       display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
+      flex-direction: column;
+      gap: 15px;
     }
 
     .meme {
-      background: #2b2b2b;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-      border: 3px solid #3b82f6; /* Neon Border */
-      width: 300px;
-    }
-
-    .meme:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.8);
-      border: 3px solid #3b82f6;
+      background: rgba(43, 43, 43, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #3b82f6;
     }
 
     .meme img {
       width: 100%;
       max-width: 500px;
       height: auto;
-      border-radius: 15px;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .meme img:hover {
-      transform: scale(1.05);
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
 
     .meme p {
-      text-align: center;
-      font-size: 18px;
-    }
-
-    .tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .tags a {
-      color: #3b82f6;
-      font-size: 14px;
-      text-decoration: none;
-      background-color: rgba(59, 130, 246, 0.1);
-      border-radius: 5px;
-      padding: 5px 10px;
-      transition: background-color 0.3s ease;
-    }
-
-    .tags a:hover {
-      background-color: #3b82f6;
-      color: #fff;
-    }
-
-    h1 {
-      font-size: 35px;
-      font-weight: bold;
-      color: #fff;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-      text-align: center;
+      text-align: left;
+      font-size: 1rem;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h2>MemeHub</h2>
-    <a href="home.html">Home</a>
+    <a class="navbar-brand" href="#">🔥 MemeHub</a>
+    <nav>
+      <a href="./home.html">Home</a>
+      <a href="./create-meme.html">Create Meme</a>
+      <a href="./leaderboard.html">Leaderboard</a>
+      <a href="./about.html">About</a>
+    </nav>
   </header>
 
-  <main class="container">
-    <section class="text-center">
-      <h1>#trendyMemes🔥</h1>
-      <div id="results-container">
-
-        <!-- Meme 1 -->
-        <div class="meme">
-          <img src="https://i.pinimg.com/originals/56/8b/11/568b11c60293d80b7a120a3e2f477f66.jpg" alt="Meme 1">
-          <p><strong>When you fix one bug and five more appear</strong></p>
-          <p><em>Posted by: coderDude123</em></p>
-          <div class="tags">
-            <a href="#">#debugging</a>
-            <a href="#">#developerLife</a>
-            <a href="#">#trending</a>
-          </div>
-        </div>
-
-        <!-- Meme 2 -->
-        <div class="meme">
-          <img src="https://i.pinimg.com/originals/fd/79/7e/fd797e931b2db57b3f6cf6722c768528.jpg" alt="Meme 2">
-          <p><strong>JavaScript: where 0 == '0' is true but 0 === '0' is false</strong></p>
-          <p><em>Posted by: jsMaster</em></p>
-          <div class="tags">
-            <a href="#">#javascript</a>
-            <a href="#">#truthyFalsy</a>
-            <a href="#">#trending</a>
-          </div>
-        </div>
-
-        <!-- Meme 3 -->
-        <div class="meme">
-          <img src="https://i.pinimg.com/originals/80/47/0b/80470b58f14cc6fa6b72720025cfbadd.jpg" alt="Meme 3">
-          <p><strong>When you say "it’s just a small change"</strong></p>
-          <p><em>Posted by: devQueen</em></p>
-          <div class="tags">
-            <a href="#">#projectFails</a>
-            <a href="#">#trending</a>
-            <a href="#">#relatable</a>
-          </div>
-        </div>
-
-        <!-- Meme 4 -->
-        <div class="meme">
-          <img src="https://i.pinimg.com/originals/39/d7/0a/39d70a3cbeb7fae91e8f42359e10dbe2.jpg" alt="Meme 4">
-          <p><strong>Deploying on Friday is the ultimate act of bravery</strong></p>
-          <p><em>Posted by: braveDev</em></p>
-          <div class="tags">
-            <a href="#">#devOps</a>
-            <a href="#">#trending</a>
-            <a href="#">#fridayDeploy</a>
-          </div>
-        </div>
-
-        <!-- Meme 5 -->
-        <div class="meme">
-          <img src="https://i.pinimg.com/originals/30/69/19/306919f8c706b6f3dececb0c6b41f2b4.jpg" alt="Meme 5">
-          <p><strong>Client: “Make it pop!”</strong></p>
-          <p><em>Posted by: uxWizard</em></p>
-          <div class="tags">
-            <a href="#">#uxDesign</a>
-            <a href="#">#clientRequests</a>
-            <a href="#">#trending</a>
-          </div>
-        </div>
-
-      </div>
+  <main>
+    <section>
+      <h1>Search Results</h1>
+      <div id="results-container"></div>
     </section>
   </main>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const resultsContainer = document.getElementById('results-container');
+      try {
+        const response = await fetch('https://api.imgflip.com/get_memes');
+        const data = await response.json();
+        const memes = data.data.memes;
+
+        memes.forEach(meme => {
+          const memeDiv = document.createElement('div');
+          memeDiv.classList.add('meme');
+          memeDiv.innerHTML = `<img src="${meme.url}" alt="${meme.name}"/><p>${meme.name}</p>`;
+          resultsContainer.appendChild(memeDiv);
+        });
+      } catch (error) {
+        resultsContainer.innerHTML = '<p>Failed to load memes. Please try again later.</p>';
+      }
+    });
+  </script>
 </body>
 
 </html>

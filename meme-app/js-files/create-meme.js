@@ -1,7 +1,14 @@
-import { storage } from "../firebase/firebase-config.js";
+firebase.initializeApp({
+  apiKey: "AIzaSyCExlLEC7sy9KAnLzDvIgaOxGm7joxmRwA",
+  authDomain: "memebattle-fe1b6.firebaseapp.com",
+  projectId: "memebattle-fe1b6",
+  storageBucket: "memebattle-fe1b6.appspot.com",
+  messagingSenderId: "463661071981",
+  appId: "1:463661071981:web:4f0875c124a5726d49b4df"
+});
 
-// DOM elements
-document.addEventListener('DOMContentLoaded', async () => {
+const db = firebase.firestore();
+const storage = firebase.storage();
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const fontSizeInput = document.getElementById("fontSize");
@@ -10,13 +17,11 @@ const fontSizeVal = document.getElementById("fontSizeVal");
 let selectedImageURL = "";
 let uploadedFile = null;
 
-// Font size preview
 fontSizeInput.oninput = () => {
   fontSizeVal.textContent = fontSizeInput.value + "px";
   drawMeme();
 };
 
-// Handle user upload
 document.getElementById("uploadInput").onchange = (e) => {
   const file = e.target.files[0];
   if (!file) return;
@@ -30,7 +35,6 @@ document.getElementById("uploadInput").onchange = (e) => {
   reader.readAsDataURL(file);
 };
 
-// Template selection
 document.querySelectorAll(".template-img").forEach(img => {
   img.onclick = () => {
     clearActive();
@@ -45,7 +49,6 @@ function clearActive() {
   document.querySelectorAll(".template-img").forEach(img => img.classList.remove("active-template"));
 }
 
-// Draw meme on canvas
 function drawMeme() {
   if (!selectedImageURL) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -87,7 +90,6 @@ function drawMeme() {
   image.src = selectedImageURL;
 }
 
-// Fetch meme from API
 async function fetchMeme() {
   try {
     const res = await fetch("https://api.imgflip.com/get_memes");
@@ -103,21 +105,18 @@ async function fetchMeme() {
   }
 }
 
-// Upload to Firebase Storage
 async function uploadImage(file) {
   const ref = storage.ref().child("memes/" + Date.now() + "_" + file.name);
   const snap = await ref.put(file);
   return await snap.ref.getDownloadURL();
 }
 
-// Submit meme to Firestore
 document.getElementById("memeForm").onsubmit = async (e) => {
   e.preventDefault();
   if (!selectedImageURL) return Swal.fire("Oops", "Select or upload an image", "warning");
   Swal.showLoading();
   try {
     const url = uploadedFile ? await uploadImage(uploadedFile) : selectedImageURL;
-
     await db.collection("memes").add({
       title: document.getElementById("title").value,
       topText: document.getElementById("topText").value,
@@ -127,9 +126,8 @@ document.getElementById("memeForm").onsubmit = async (e) => {
       outline: document.getElementById("outlineSwitch").checked,
       tags: document.getElementById("tags").value,
       imageUrl: url,
-      timestamp: Date.now() // Alternative to Firestore timestamp if not imported
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
     });
-
     Swal.fire("Success", "Meme created successfully!", "success");
     resetForm();
   } catch (error) {
@@ -137,7 +135,6 @@ document.getElementById("memeForm").onsubmit = async (e) => {
   }
 };
 
-// Reset form
 function resetForm() {
   document.getElementById("memeForm").reset();
   selectedImageURL = "";
@@ -146,7 +143,6 @@ function resetForm() {
   drawMeme();
 }
 
-// Generate funny top caption
 function generateRandomCaption() {
   const captions = [
     "When you realize...",
@@ -159,7 +155,6 @@ function generateRandomCaption() {
   drawMeme();
 }
 
-// Download meme as image
 function downloadMeme() {
   const link = document.createElement('a');
   link.download = 'meme.png';
@@ -167,14 +162,7 @@ function downloadMeme() {
   link.click();
 }
 
-// Surprise feature: random meme + random caption
 function surpriseMe() {
   fetchMeme();
   generateRandomCaption();
 }
-
- window.fetchMeme = fetchMeme;
-  window.generateRandomCaption = generateRandomCaption;
-  window.downloadMeme = downloadMeme;
-  window.surpriseMe = surpriseMe;
-});

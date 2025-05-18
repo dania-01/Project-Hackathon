@@ -20,23 +20,24 @@
 <body class="bg-dark text-white">
   <header class="d-flex justify-content-between align-items-center p-3 neon-border">
     <h2 class="neon-text">🔥 MemeHub</h2>
-<form class="d-flex search-form" onsubmit="searchQuery(event)">
-  <input class="form-control me-2 search-input" type="text" id="searchInput" placeholder="Search tags, users..." required />
-  <button class="btn btn-outline-info neon-btn" type="submit"><i class="fas fa-search"></i></button>
-</form>
+    <form class="d-flex search-form" onsubmit="searchQuery(event)">
+      <input class="form-control me-2 search-input" type="text" id="searchInput" placeholder="Search tags, users..."
+        required />
+      <button class="btn btn-outline-info neon-btn" type="submit"><i class="fas fa-search"></i></button>
+    </form>
 
     <nav class="d-flex gap-3 align-items-center">
       <div id="authSection">
         <a href="index.html" class="btn btn-outline-light neon-btn">Login</a>
         <a href="index.html" class="btn btn-outline-light neon-btn">Register</a>
-                <a href="about.html" class="btn btn-outline-light neon-btn">About Us</a>
+        <a href="about.html" class="btn btn-outline-light neon-btn">About Us</a>
 
       </div>
       <div id="userSection" style="display: none;">
         <a href="create-meme.html" class="btn btn-outline-success neon-btn">Create Meme</a>
         <a href="dashboard.html" class="btn btn-outline-warning neon-btn">Dashboard</a>
         <a href="about.html" class="btn btn-outline-warning neon-btn">About Us</a>
-        
+
         <button class="btn btn-danger neon-btn" id="logoutBtn">Logout</button>
 
       </div>
@@ -48,8 +49,10 @@
       <h1 class="display-5 neon-text">The Internet's Playground for Memes 🎉</h1>
       <p class="lead">Create, share, and discover the best memes on the web.</p>
       <div class="d-flex justify-content-center gap-3 mt-4">
-        <button class="btn btn-lg btn-outline-primary neon-btn" onclick="window.location.href='create-meme.html'">🎨 Create Meme</button>
-        <button class="btn btn-lg btn-outline-warning neon-btn" onclick="window.location.href='trendingPage.html'">🔥 Explore Trending</button>
+        <button class="btn btn-lg btn-outline-primary neon-btn" onclick="window.location.href='create-meme.html'">🎨
+          Create Meme</button>
+        <button class="btn btn-lg btn-outline-warning neon-btn" onclick="window.location.href='trendingPage.html'">🔥
+          Explore Trending</button>
       </div>
     </section>
     <section id="memes-container" class="row g-4"></section>
@@ -58,36 +61,36 @@
     function searchQuery(event) {
       event.preventDefault();
       const query = document.getElementById('searchInput').value.trim();
-      if (query) window.location.href = search.html?query=${encodeURIComponent(query)};
+      if (query) window.location.href = `./search.html?query=${encodeURIComponent(query)}`;
     }
   </script>
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const authSection = document.getElementById("authSection");
-    const userSection = document.getElementById("userSection");
+    document.addEventListener("DOMContentLoaded", () => {
+      const authSection = document.getElementById("authSection");
+      const userSection = document.getElementById("userSection");
 
-    const user = JSON.parse(localStorage.getItem("user"));
+      const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user) {
-      authSection.style.display = "none";
-      userSection.style.display = "flex";
-    } else {
-      authSection.style.display = "flex";
-      userSection.style.display = "none";
-    }
+      if (user) {
+        authSection.style.display = "none";
+        userSection.style.display = "flex";
+      } else {
+        authSection.style.display = "flex";
+        userSection.style.display = "none";
+      }
 
-    // Logout functionality
-    const logoutBtn = document.getElementById("logoutBtn");
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", () => {
-        localStorage.removeItem("user");
-        window.location.reload(); // or redirect to login
-      });
-    }
-  });
-</script>
+      // Logout functionality
+      const logoutBtn = document.getElementById("logoutBtn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+          localStorage.removeItem("user");
+          window.location.reload(); // or redirect to login
+        });
+      }
+    });
+  </script>
 
-//   <!-- SweetAlert CDN -->
+  // <!-- SweetAlert CDN -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="module" src="../js-files/home.js"></script>
 </body>

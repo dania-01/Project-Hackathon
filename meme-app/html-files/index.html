@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,9 +20,11 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../css-files/style.css" />
 </head>
-<body class="bg-light d-flex justify-content-center align-items-center min-vh-100">
 
-  <div class="container card shadow-lg p-4" id="authContainer" style="max-width: 400px;">
+<body class="bg-dark text-light d-flex justify-content-center align-items-center min-vh-100"
+  style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);">
+
+  <div class="container card shadow-lg p-4" id="authContainer" style="max-width: 400px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); border: 2px solid #fff; border-radius: 15px;">
     <h2 class="text-center mb-4" id="formTitle">Login</h2>
 
     <div id="welcome" class="text-center fw-bold fs-5 mb-2" style="display:none"></div>
@@ -30,65 +33,67 @@
     <!-- Login Form -->
     <div id="loginForm">
       <div class="mb-3">
-        <input type="email" id="loginEmail" class="form-control" placeholder="Enter Email" required />
+        <input type="email" id="loginEmail" class="form-control bg-dark text-light border-neon" placeholder="Enter Email" required />
       </div>
       <div class="mb-3 position-relative">
-        <input type="password" id="loginPassword" class="form-control" placeholder="Enter Password" required />
+        <input type="password" id="loginPassword" class="form-control bg-dark text-light border-neon" placeholder="Enter Password" required />
         <span class="toggle-password">👁️</span>
       </div>
       <div class="d-flex justify-content-between mb-2">
-        <a href="#" onclick="forgotPassword()" class="small text-primary">Forgot Password?</a>
-        <label class="form-check-label">
+        <a style="text-decoration: none; color:rgb(149, 145, 145)" href="#" onclick="forgotPassword()" class="small">Forgot Password?</a>
+        <label class="form-check-label" style="color: rgb(20, 17, 17);">
           Remember Me
           <input type="checkbox" class="form-check-input" id="rememberMe" />
         </label>
       </div>
-      <button class="btn btn-success w-100" onclick="login()">Login</button>
-      <div class="text-center mt-2">
-        Don't have an account? <a onclick="toggleForms()" class="text-primary">Sign Up</a>
+      <button class="btn btn-success w-100 neon-button" onclick="login()">Login</button>
+      <div class="text-center mt-2" style="color: rgb(20, 17, 17);">
+        Don't have an account? <a style="color:rgb(149, 145, 145)" onclick="toggleForms()">Sign Up</a>
       </div>
     </div>
 
     <!-- Signup Form -->
     <div id="signupForm" style="display:none;">
       <div class="mb-3">
-        <input type="email" id="signupEmail" class="form-control" placeholder="Enter Email" required />
+        <input type="email" id="signupEmail" class="form-control bg-dark text-light border-neon" placeholder="Enter Email" required />
       </div>
       <div class="mb-3 position-relative">
-        <input type="password" id="signupPassword" class="form-control" placeholder="Enter Password" required />
+        <input type="password" id="signupPassword" class="form-control bg-dark text-light border-neon" placeholder="Enter Password" required />
         <span class="toggle-password">👁️</span>
       </div>
       <div class="mb-3 position-relative">
-        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required />
+        <input type="password" id="confirmPassword" class="form-control bg-dark text-light border-neon" placeholder="Confirm Password" required />
         <span class="toggle-password">👁️</span>
       </div>
       <div class="form-check mb-2">
         <input type="checkbox" class="form-check-input" id="rememberMeSignup" />
-        <label class="form-check-label">Remember Me</label>
+        <label class="form-check-label" style="color: rgb(20, 17, 17);">Remember Me</label>
       </div>
-      <button class="btn btn-primary w-100" onclick="signup()">Sign Up</button>
-      <div class="text-center mt-2">
-        Already have an account? <a onclick="toggleForms()" class="text-primary">Login</a>
+      <button class="btn btn-primary w-100 neon-button" onclick="signup()">Sign Up</button>
+      <div style="color: rgb(20, 17, 17);" class="text-center mt-2">
+        Already have an account? <a style="text-decoration: none; color:rgb(149, 145, 145)" onclick="toggleForms()">Login</a>
       </div>
     </div>
 
     <!-- Google Auth -->
     <button class="btn btn-danger w-100 mt-3" onclick="signInWithGoogle()">Continue with Google</button>
-
-  <!-- Script -->
-  <script type="module" src="../js-files/login.js">
-
-  auth.onAuthStateChanged(user => {
-    if (user) {
-      window.location.href = "html-files/dashboard.html";
-    }
-  });
-</script>
-    </div>
-    
-    <footer class="text-center text-muted mt-4">
-        &copy; 2025 MemeHub. All rights reserved.
+    <footer style="color: rgb(20, 17, 17);" class="text-center mt-4">
+      &copy; 2025 MemeHub. All rights reserved.
     </footer>
-    
+
+    <!-- Script -->
+    <script type="module" src="../js-files/login.js">
+
+      auth.onAuthStateChanged(user => {
+        if (user) {
+          window.location.href = "html-files/dashboard.html";
+        }
+      });
+    </script>
+  </div>
+
+
+
 </body>
+
 </html>

@@ -75,7 +75,7 @@ export async function loadMemes() {
   const memesContainer = document.getElementById("memes-container");
   const subreddits = ["memes", "dankmemes", "funny"];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     const subreddit = subreddits[Math.floor(Math.random() * subreddits.length)];
     const res = await fetch(`https://meme-api.com/gimme/${subreddit}`);
     const data = await res.json();
