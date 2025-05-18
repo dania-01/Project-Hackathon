@@ -10,7 +10,7 @@ MemeHub is a vibrant, full-featured meme-sharing platform built using HTML, Java
   - Sign in with Google  
   - Sign in using email/phone credentials  
   - Test credentials:
-    - **Email**: `danikhan0412@gmail.com`  
+    - **Email**: `daniakhan0412@gmail.com`  
     - **Password**: `1234567`  
 
 - 🖼️ **Create Meme**
