@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MemeHub Leaderboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🔥 MemeHub Leaderboard 🔥</h1>
+  <div class="leaderboard">
+    <div class="top-user" id="topUserBox"></div>
+    <div class="search">
+      <input type="text" id="searchBox" placeholder="Search by username..." autocomplete="off" />
+    </div>
+    <div class="actions">
+      <button class="refresh-btn" id="refreshBtn">🔄 Refresh Leaderboard</button>
+    </div>
+    <div id="leaderboardList"></div>
+  </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="script.js"></script>
+</body>
+</html>
